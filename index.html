@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Price Predictor</title>
+</head>
+<body>
+    <h1>Laptop Price Predictor</h1>
+    <form action="/predict" method="POST">
+
+        <!-- Dropdown for Screen Size -->
+        <label for="Screen_Size">Screen Size:</label>
+        <select name="Screen Size" id="Screen_Size">
+            {% for option in dropdown_options['Screen Size'] %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- Dropdown for CPU -->
+        <label for="CPU">CPU:</label>
+        <select name="CPU" id="CPU">
+            {% for option in dropdown_options['CPU'] %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- Dropdown for RAM -->
+        <label for="RAM">RAM:</label>
+        <select name="RAM" id="RAM">
+            {% for option in dropdown_options['RAM'] %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- Dropdown for Storage -->
+        <label for="Storage">Storage:</label>
+        <select name="Storage" id="Storage">
+            {% for option in dropdown_options['Storage'] %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- Dropdown for GPU -->
+        <label for="GPU">GPU:</label>
+        <select name="GPU" id="GPU">
+            {% for option in dropdown_options['GPU'] %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- Dropdown for Weight -->
+        <label for="Weight">Weight:</label>
+        <select name="Weight" id="Weight">
+            {% for option in dropdown_options['Weight'] %}
+                <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Predict Price</button>
+
+    </form>
+
+    <!-- Display Prediction -->
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
